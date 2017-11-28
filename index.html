@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Device Portal</title>
+
+    <script src="https://use.fontawesome.com/3f1ebc53a0.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/jquery.shadow-animation/1/mainfile"></script>
+
+    <script src="assets/scripts/application.js"></script>
+
+    <link rel="icon" type="image/png" href="app/assets/images/favicon.png">
+     <link rel="stylesheet" type="text/css" href="assets/stylesheets/alerts.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/application.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/alertModal.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/container.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/editMenu.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/navigation.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/Devices.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/newDeviceModal.css">
+    
+  </head>
+
+  <body>
+
+	<div class="titleBar">
+		<div class="pageTitle">
+			<i class="fa fa-list-alt" aria-hidden="true"></i>
+			Devices
+		</div>
+	</div>
+
+	<div class="modalOverlay"></div>
+
+	<!-- below will be the side navbar -->
+	<div class="sidebar">
+		<div class="topLogo">
+			<i class="fa fa-glass" aria-hidden="true"></i>
+			<p class="logoBigText">WHISKEY</p>
+			<p class="logoSmallText">BUSINESS</p>
+		</div>
+
+		<!-- begin the nav menu -->
+
+		<div class="navMenu">
+			<!--<div class="navItem">
+				<a class="navLink">
+					<i class="fa fa-laptop" aria-hidden="true"></i>
+					Devices
+				</a>
+			</div>
+			<div class="navItem">
+				<a class="navLink">
+					<i class="fa fa-bar-chart" aria-hidden="true"></i>
+					Details
+				</a>
+			</div>
+			<div class="navItem">
+				<a class="navLink">
+					<i class="fa fa-exclamation-circle alert-notice" aria-hidden="true"></i>
+					Warnings
+				</a>
+			</div>
+			<div class="navItem">
+				<a class="navLink"><i class="fa fa-book " aria-hidden="true"></i>
+					Reports
+				</a>
+			</div>-->
+		</div>
+
+		<!-- end the nav menu -->
+
+		<!-- begin the settings menu -->
+
+		<!--<div class="settingsMenu">
+			<div class="settingsItem">
+				<a class="settingsLink">Admin</a>
+			</div>
+			<div class="settingsItem">
+				<a class="settingsLink">Account</a>
+			</div>
+			<div class="settingsItem">
+				<a class="settingsLink">Setup</a>
+			</div>
+			<div class="settingsItem">
+				<a class="settingsLink">Support</a>
+			</div>
+			<div class="settingsItem">
+				<a class="settingsLink">Sign Out</a>
+			</div>
+		</div>-->
+	</div>
+	<!-- end the sidebar -->
+
+	<!-- main page container stuff below here -->
+	<div class="container">
+		<div class="detailTable" id="deviceTable">
+			<div class="columnHeaders">
+				<div class="deviceID">Player ID</div>
+				<div class="lastUpdate">Last Match</div>
+				<div class="batteryLevel">Fantasy Score</div>
+				<div class="deviceIPD">MMR</div>
+				<div class="mostPlayed">Most Played</div>
+				<div class="primaryButton" id="addDeviceButton">Add Player  <i class="fa fa-plus" aria-hidden="true"></i></div>
+			</div>
+            <!--<div class="deviceRow">
+                <div class="deviceID"></div>
+                <div class="lastUpdate"></div>
+                <div class="batteryLevel"></div>
+                <div class="deviceIPD"></div>
+                <div class="primaryButton setIpdChild">Child</div>
+                <div class="primaryButton setIpdMale">Adult (M)</div>
+                <div class="primaryButton setIpdFemale">Adult (F)</div>
+                <div class="primaryButton refreshButton" uniqueId="1">Refresh</div>
+                <div class="primaryButton" id="editButton">Edit</div>
+            </div>--> 
+		</div>
+	</div>
+
+	<div class="editMenu">
+		<div class="editHeader">Edit Alerts</div>
+		<div class="editSubheader">Alert Details</div>
+		<div class="deviceEdit">
+			<p class="currentIPDTitle">Set IPD:</p>
+			<input class="ipdInput inputBox"></input>
+		</div>
+		<div class="divider"></div>
+		<div class="alertContactsEdit">
+			<p class="primaryContact">Primary Contact:</p>
+			<input class="primaryContactInput inputBox" placeholder="youremail@fake.com"></input>
+			<p class="emergencyContact">Emergency Contact:</p>
+			<input class="emergencyContactInput inputBox" placeholder="supervisoremail@fake.com"></input>
+		</div>
+		<div class="divider"></div>
+		<div class="primaryButton" id="updateSidebarButton">Update</div>
+		<div class="successMessage">Successful!</div>
+		<div class="hideButton"><i class="fa fa-caret-right" aria-hidden="true"></i></div>
+	</div>
+
+	<div class="modal newDeviceModal">
+		<div class="modalHeader">New Player Entry</div>
+		<div class="newDeviceEntry">New Player ID:</div>
+		<input class="uuidEntryField inputBox" placeholder = "Get this from Dotabuff"></input>
+		<div class="primaryButton" id="newDeviceSubmit">Add This Player</div>
+		<div class="closeModal"><i class="fa fa-times" aria-hidden="true"></i></div>
+	</div>
+
+	<div class="modal confirmModal">
+		<div class="modalHeader">Confirm Headset Removal</div>
+		<div class="removeConfirmDialog">Are you sure you want to remove device ID </div>
+		<div class="primaryButton" id="removeDeviceSubmit">Remove This Device</div>
+		<div class="closeModal"><i class="fa fa-times" aria-hidden="true"></i></div>
+	</div>
+
+  </body>
+</html>
+
+<!-- this is the template content for adding rows
+            <div class="deviceRow">
+                <div class="deviceID"></div>
+                <div class="lastUpdate"></div>
+                <div class="batteryLevel alertText"></div>
+                <div class="deviceIPD alertText"></div>
+                <div class="elementDatum"></div>
+                <div class="primaryButton refreshButton" uniqueId="1">Refresh</div>
+                <div class="primaryButton" id="editButton">Edit</div>
+                <div class="setIpdChild"></div>
+                <div class="setIpdMale"></div>
+                <div class="setIpdFemale"></div>
+            </div>    
+-->
